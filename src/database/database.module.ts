@@ -11,15 +11,16 @@ import { User } from '../user/entities/user.entity';
             inject: [ConfigService],
             useFactory: (configService: ConfigService) => ({
                 type: 'mysql',
-                host: configService.get('MYSQLBD_HOST'),
-                username: configService.get('MYSQLBD_USER'),
-                port: configService.get('MYSQLBD_PORT'),
+                host: configService.get('MYSQL_HOST'),
+                username: configService.get('MYSQL_USER'),
+                port: configService.get('MYSQL_PORT'),
                 password: configService.get(''),
-                database: configService.get('MYSQLBD_DATABASE'),
+                database: configService.get('MYSQL_DATABASE'),
                 entities: [
                     Post,
                     User
-                ], synchronize: true,
+                ], 
+                autoLoadEntities:true
 
             })
         })

@@ -13,11 +13,11 @@ import { GetawayGateway } from './getaway/getaway.gateway';
     UserModule,
     ConfigModule.forRoot({
       validationSchema: Joi.object({
-        MYSQLBD_HOST: Joi.string().required(),
-        MYSQLBD_PORT: Joi.number().required(),
-        MYSQLBD_USER: Joi.string().required(),
-        MYSQLBD_PASSWORD: Joi.string().required(),
-        MYSQLBD_DATABASE: Joi.string().required(),
+        MYSQL_HOST: Joi.string().required(),
+        MYSQL_PORT: Joi.number().required(),
+        MYSQL_USER: Joi.string().required(),
+        MYSQL_PASSWORD: Joi.string().required(),
+        MYSQL_DATABASE: Joi.string().required(),
         PORT: Joi.number()
       })
     }),
