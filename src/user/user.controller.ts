@@ -1,4 +1,4 @@
-import { Controller, Get, Post, Body, Patch, Param, Delete, UseGuards, Req, Logger, Request } from '@nestjs/common';
+import { Controller, Get, Post, Body, Patch, Param, Delete, UseGuards, Req, Logger, Request, UseInterceptors, ClassSerializerInterceptor } from '@nestjs/common';
 import { UserService } from './user.service';
 import { CreateUserDto } from './dto/create-user.dto';
 import { UpdateUserDto } from './dto/update-user.dto';
@@ -20,13 +20,15 @@ export class UserController {
     return await this.userService.login(loginUserDto)
   }
 
-
+  @UseInterceptors(ClassSerializerInterceptor)
   @Get()
   @UseGuards(JwtAuthGuard)
-  findAll(@Request() req) {
+  async findAll(@Request() req) {
     console.log(req.user)
+    const users = await this.userService.findAll
+    return new User
 
-    return this.userService.findAll();
+
   }
 
   @Get(':id')

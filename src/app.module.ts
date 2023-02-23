@@ -6,6 +6,7 @@ import { AppService } from './app.service';
 import { UserModule } from './user/user.module';
 import { DatabaseModule } from './database/database.module';
 import { PostModule } from './post/post.module';
+import { GetawayGateway } from './getaway/getaway.gateway';
 
 @Module({
   imports: [
@@ -24,6 +25,6 @@ import { PostModule } from './post/post.module';
     PostModule,
   ],
   controllers: [AppController],
-  providers: [AppService],
+  providers: [AppService, GetawayGateway],
 })
 export class AppModule { }

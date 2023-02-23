@@ -27,4 +27,3 @@ dotenv.config();
   providers: [UserService, JwtStrategy, ConfigService]
 })
 export class UserModule { }
-

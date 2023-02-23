@@ -20,6 +20,8 @@ export class UserService {
       ...createUserDto
     });
 
+    console.log(users);
+
     users.salt = await bcrypt.genSalt();
     users.password = await bcrypt.hash(users.password, users.salt)
 
@@ -54,8 +56,11 @@ export class UserService {
     }
   }
 
-  findAll() {
-    return `This action returns all user`;
+  async findAll() {
+    const user = await this.userRepository.find()
+    console.log(user, 'lalalalal');
+
+    return user;
   }
 
   findOne(id: number) {
